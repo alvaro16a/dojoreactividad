@@ -1,4 +1,4 @@
-public class Correo {
-    List<String> correos = new ArrayList<>();
+package co.com.sofka.dojoreactividad.correo;
 
+public class Correo {
 }
