@@ -23,7 +23,7 @@ public class DojoreactividadApplication implements CommandLineRunner {
 //		ContarCorreos contar = new ContarCorreos();
 //		contar.contarCorreos();
 
-		ContarCorreosPorDominio contarCorreosPorDominio = new ContarCorreosPorDominio();
-		contarCorreosPorDominio.contarCorreosPorDominio();
+//		ContarCorreosPorDominio contarCorreosPorDominio = new ContarCorreosPorDominio();
+//		contarCorreosPorDominio.contarCorreosPorDominio();
 	}
 }
