@@ -8,11 +8,13 @@ import reactor.core.publisher.Flux;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map {
+public class Filter {
 
-    private static final Logger log = LoggerFactory.getLogger(Map.class);
+    private static final Logger log = LoggerFactory.getLogger(Filter.class);
 
-    public void map(){
+
+    public void filter() {
+
         List<Correo> correos= new ArrayList<>();
         correos.add(new Correo(1,"alvaro16a@gmail.com"));
         correos.add(new Correo(2,"alvaro16a@gmail.com"));
@@ -45,16 +47,24 @@ public class Map {
         correos.add(new Correo(29,"sofka@sofka.com.co"));
         correos.add(new Correo(30,"nusoka@sofka.com.co"));
 
-        Flux<Correo> correosEnviados=Flux.fromIterable(correos)
-                .map(correo -> {
-                    String email=correo.getCorreo();
-                    if(email.contains("@") && (email.contains("gmail") || email.contains("outlook") || email.contains("hotmail"))){
-                        return (new Correo(correo.getIdCorreo(),correo.getCorreo(),true));
-                    }
-                    return (new Correo(correo.getIdCorreo(),correo.getCorreo(),false));
-                });
+        //gmail
+        log.info("Filtro Correos gmail");
+        Flux.fromIterable(correos)
+                .filter(c -> c.getCorreo().contains("gmail"))
+                .subscribe(c -> log.info(c.toString()));
 
-        correosEnviados.subscribe(correo-> log.info(correo.toString()));
+        //hotmail
+        log.info("Filtro Correos hotmail");
+        Flux.fromIterable(correos)
+                .filter(c -> c.getCorreo().contains("hotmail"))
+                .subscribe(c -> log.info(c.toString()));
+
+        //outlook
+        log.info("Filtro Correos outlook");
+        Flux.fromIterable(correos)
+                .filter(c -> c.getCorreo().contains("outlook"))
+                .subscribe(c -> log.info(c.toString()));
 
     }
+
 }

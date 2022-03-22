@@ -3,10 +3,34 @@ package co.com.sofka.dojoreactividad.PuntoUno.operadores.model;
 import java.util.Objects;
 
 public class Correo {
-    private String correo;
 
-    public Correo(String correo) {
+    private Integer idCorreo;
+    private String correo;
+    private boolean enviado;
+
+
+    public Correo(Integer idCorreo, String correo) {
         this.correo = correo;
+        this.enviado =false;
+        this.idCorreo=idCorreo;
+    }
+
+    public Correo(Integer idCorreo, String correo, boolean enviado) {
+        this.correo = correo;
+        this.enviado = enviado;
+        this.idCorreo=idCorreo;
+    }
+
+    public Integer getIdCorreo() {
+        return idCorreo;
+    }
+
+    public boolean isEnviado() {
+        return enviado;
+    }
+
+    public void setEnviado(boolean enviado) {
+        this.enviado = enviado;
     }
 
     public String getCorreo() {
@@ -20,20 +44,23 @@ public class Correo {
     @Override
     public String toString() {
         return "Correo{" +
-                "correo='" + correo + '\'' +
+                "idCorreo=" + idCorreo +
+                ", correo='" + correo + '\'' +
+                ", enviado=" + enviado +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Correo)) return false;
         Correo correo1 = (Correo) o;
-        return Objects.equals(correo, correo1.correo);
+        return Objects.equals(idCorreo, correo1.idCorreo) && Objects.equals(correo, correo1.correo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(correo);
+        return Objects.hash(idCorreo, correo);
     }
 }

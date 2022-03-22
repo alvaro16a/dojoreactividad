@@ -14,37 +14,36 @@ public class Distinct {
 
     public void distinct(){
         List<Correo> correos= new ArrayList<>();
-        correos.add(new Correo("alvaro16a@gmail.com"));
-        correos.add(new Correo("alvaro16a@gmail.com"));
-        correos.add(new Correo("andreo1asa@gail.com"));
-        correos.add(new Correo("alvaa@outclock.com"));
-        correos.add(new Correo("camilo16a@hotmail.com"));
-        correos.add(new Correo("andres@gmail.com"));
-        correos.add(new Correo("jose@gmail.com"));
-        correos.add(new Correo("alvaro16a@gmail.com"));
-        correos.add(new Correo("felipe@outlook.com"));
-        correos.add(new Correo("gomeza@gmail.com"));
-        correos.add(new Correo("arango@gmail.com"));
-        correos.add(new Correo("felipe@hotmail.com"));
-        correos.add(new Correo("palma@outlook.com"));
-        correos.add(new Correo("sofka@sofka.com.co"));
-        correos.add(new Correo("nusofka@sofka.com.co"));
-        correos.add(new Correo("alvro16a@gmail.com"));
-        correos.add(new Correo("alvaro16a@gmail.com"));
-        correos.add(new Correo("andreo1asa@gail.com"));
-        correos.add(new Correo("alvaa@outclock.com"));
-        correos.add(new Correo("cami16a@hotmail.com"));
-        correos.add(new Correo("andres@gmail.com"));
-        correos.add(new Correo("jose@gmail.com"));
-        correos.add(new Correo("alro16a@gmail.com"));
-        correos.add(new Correo("felipe@outlook.com"));
-        correos.add(new Correo("gomeza@gmail.com"));
-        correos.add(new Correo("arao@gmail.com"));
-        correos.add(new Correo("felipe@hotmail.com"));
-        correos.add(new Correo("palma@outlook.com"));
-        correos.add(new Correo("sofka@sofka.com.co"));
-        correos.add(new Correo("nusoka@sofka.com.co"));
-
+        correos.add(new Correo(1,"alvaro16a@gmail.com"));
+        correos.add(new Correo(2,"alvaro16a@gmail.com"));
+        correos.add(new Correo(3,"andreo1asa@gail.com"));
+        correos.add(new Correo(4,"alvaa@outclock.com"));
+        correos.add(new Correo(5,"camilo16a@hotmail.com"));
+        correos.add(new Correo(6,"andres@gmail.com"));
+        correos.add(new Correo(7,"jose@gmail.com"));
+        correos.add(new Correo(8,"alvaro16a@gmail.com"));
+        correos.add(new Correo(9,"felipe@outlook.com"));
+        correos.add(new Correo(10,"gomeza@gmail.com"));
+        correos.add(new Correo(11,"arango@gmail.com"));
+        correos.add(new Correo(12,"felipe@hotmail.com"));
+        correos.add(new Correo(13,"palma@outlook.com"));
+        correos.add(new Correo(14,"sofka@sofka.com.co"));
+        correos.add(new Correo(15,"nusofka@sofka.com.co"));
+        correos.add(new Correo(16,"alvro16a@gmail.com"));
+        correos.add(new Correo(17,"alvaro16a@gmail.com"));
+        correos.add(new Correo(18,"andreo1asa@gail.com"));
+        correos.add(new Correo(19,"alvaa@outclock.com"));
+        correos.add(new Correo(20,"cami16a@hotmail.com"));
+        correos.add(new Correo(21,"andres@gmail.com"));
+        correos.add(new Correo(22,"jose@gmail.com"));
+        correos.add(new Correo(23,"alro16a@gmail.com"));
+        correos.add(new Correo(24,"felipe@outlook.com"));
+        correos.add(new Correo(25,"gomeza@gmail.com"));
+        correos.add(new Correo(26,"arao@gmail.com"));
+        correos.add(new Correo(27,"felipe@hotmail.com"));
+        correos.add(new Correo(28,"palma@outlook.com"));
+        correos.add(new Correo(29,"sofka@sofka.com.co"));
+        correos.add(new Correo(30,"nusoka@sofka.com.co"));
         Flux.fromIterable(correos)
                 .distinct()
                 .subscribe(correo -> log.info(correo.toString()));

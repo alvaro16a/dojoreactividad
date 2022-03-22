@@ -8,11 +8,11 @@ import reactor.core.publisher.Flux;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map {
+public class ContarCorreos {
 
-    private static final Logger log = LoggerFactory.getLogger(Map.class);
+    private static final Logger log = LoggerFactory.getLogger(ContarCorreos.class);
 
-    public void map(){
+    public void contarCorreos() {
         List<Correo> correos= new ArrayList<>();
         correos.add(new Correo(1,"alvaro16a@gmail.com"));
         correos.add(new Correo(2,"alvaro16a@gmail.com"));
@@ -45,16 +45,12 @@ public class Map {
         correos.add(new Correo(29,"sofka@sofka.com.co"));
         correos.add(new Correo(30,"nusoka@sofka.com.co"));
 
-        Flux<Correo> correosEnviados=Flux.fromIterable(correos)
-                .map(correo -> {
-                    String email=correo.getCorreo();
-                    if(email.contains("@") && (email.contains("gmail") || email.contains("outlook") || email.contains("hotmail"))){
-                        return (new Correo(correo.getIdCorreo(),correo.getCorreo(),true));
-                    }
-                    return (new Correo(correo.getIdCorreo(),correo.getCorreo(),false));
-                });
-
-        correosEnviados.subscribe(correo-> log.info(correo.toString()));
-
+        Flux.fromIterable(correos)
+                .count()
+                .subscribe(c -> log.info("Cantidad Correos = " + c));
     }
+
+
+
+
 }
