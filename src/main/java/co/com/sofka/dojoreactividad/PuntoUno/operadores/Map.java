@@ -8,13 +8,13 @@ import reactor.core.publisher.Flux;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Distinct {
+public class Map {
 
-    private static final Logger log = LoggerFactory.getLogger(Distinct.class);
+    private static final Logger log = LoggerFactory.getLogger(Map.class);
 
-    public void distinct(){
+    public void map(){
         List<Correo> correos= new ArrayList<>();
-        correos.add(new Correo("alvaro16a@gmail.com"));
+        correos.add(new Correo("alvaro16agmail.com"));
         correos.add(new Correo("alvaro16a@gmail.com"));
         correos.add(new Correo("andreo1asa@gail.com"));
         correos.add(new Correo("alvaa@outclock.com"));
@@ -46,9 +46,14 @@ public class Distinct {
         correos.add(new Correo("nusoka@sofka.com.co"));
 
         Flux.fromIterable(correos)
-                .distinct()
-                .subscribe(correo -> log.info(correo.toString()));
+                .map(correo -> {
+
+                    String email=correo.getCorreo();
+                    if(email.contains("@") && (email.contains("gmail") || email.contains("outlook") || email.contains("hotmail"))){
+                        return (email +":  cumple");
+                    }
+                    return (email +":  no cumple");
+                })
+                .subscribe(correo-> log.info(correo));
     }
-
-
 }
