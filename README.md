@@ -1,4 +1,4 @@
 # dojoreactividad
 
-Alñvaro javier Mena Palomeque
+Alñvaro javier Mena Palomeque,
 Luis Camilo Monje Perdomo
